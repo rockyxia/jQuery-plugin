@@ -1,5 +1,5 @@
 # jQuery-plugin
 一些自己整合开发的jquery插件
 
-#euiSilder
+## euiSilder
 >滑动输入框
