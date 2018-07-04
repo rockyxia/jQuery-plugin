@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>滑动输入条 - jQuery.euiSilder.js</title>
+
+    <link href="./jQuery.euiSilder.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {font-size: 12px;}
+    </style>
+</head>
+<body>
+    <div style="padding: 50px;">
+        <input type="hidden" id="single-slider" value="10">
+    </div>
+    <div style="padding: 50px;">
+        <input type="hidden" id="single-slider-input" value="0" data-euisilder="{ showInput: true }">
+    </div>
+
+    <script src="../jquery-1.9.1.min.js"></script>
+    <script src="./jQuery.euiSilder.js"></script>
+    <script>
+    $(function(){
+        $('#single-slider').euiSilder({
+            from: 0,
+            to: 100,
+            step: 1,
+            scale: [0,25,50,75,100],
+            width: 500,
+            showLabels: true,
+            showScale: true,
+            isRange: true,
+            // disable: true
+        });
+
+    });
+    </script>
+</body>
+</html>
