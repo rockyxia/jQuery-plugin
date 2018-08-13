@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>文字提示/气泡提示 - jQuery.euiTips.js</title>
+
+  <link href="./jQuery.euiTips.css" rel="stylesheet" type="text/css" />
+
+  <style>
+    body {
+      font-size: 12px;
+    }
+
+    .demospan {
+      background: #dedede;
+      display: inline-block;
+      margin-bottom: 10px;
+      min-width: 100px;
+      line-height: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="padding: 100px;">
+    <div>
+      <span class="demospan" id="tip1" data-euitips="{ useTitle: false }" title="上边">上边</span>
+    </div>
+    <div>
+      <span class="demospan" id="tip2" data-euitips="{ position: 'right' }" title="右边">右边</span>
+    </div>
+    <div>
+      <span class="demospan" id="tip3" title="下边">下边</span>
+    </div>
+    <div>
+      <span class="demospan" id="tip4" title="左边">左边</span>
+    </div>
+
+    <div>
+      <span class="demospan" id="tip5" title="回调状态演示">回调状态演示</span>
+      <em id="state"></em>
+    </div>
+
+    <div>
+      <span class="demospan" title="正常title">未调用组件</span>
+    </div>
+
+  </div>
+
+
+  <script src="../jquery-1.9.1.min.js"></script>
+  <script src="./jQuery.euiTips.js"></script>
+  <script>
+    $(function () {
+      $('#tip3').euiTips({
+        position: 'bottom',
+        content: '自定义提示语',
+        background: 'rgba(255,0,0,.5)',
+        color: '#0f0'
+      });
+      $('#tip4').euiTips({
+        position: 'left',
+      });
+
+
+      $('#tip5').euiTips({
+        onBeforeShow: function () {
+          $("#state").text('准备显示了');
+        },
+        onShow: function () {
+          $("#state").text('已显示');
+        },
+        onHide: function () {
+          $("#state").text('已消失');
+          $('#tip5').euiTips('update', 'content', '动态更新内容')
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>
